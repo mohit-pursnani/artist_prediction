@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.879.0.min.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <div class="checkArtist text-right">
+        <a href="https://art-web-app.auth.us-east-1.amazoncognito.com/logout?client_id=1gt3svem2lj7fo7oeec3grr8rs&logout_uri=https://searchartbyartist.s3.amazonaws.com/index.html" class="btn btn-primary">
+            Sign Out
+        </a>
+    </div>
+    <center>
+        <div class="header">
+            <h1>Kalah</h1>
+            <p>One Place for all artists</p>
+        </div>
+    </center>
+    <body class="body" style="text-align: center;">
+        <div id="photos_search_results"></div>
+        <div class="Upload_files">
+            <h2 style="text-align: center;">Upload Photos and give custom labels if any</h2>
+            <center>
+                <form action="/action_page.php">
+                    <input type="file" id="uploaded_file" name="filename" onchange="readURL(this);">
+                    <div class="form-inline justify-content-md-center formclass"> 
+                        <p for="artist_description" class="pformclass">Enter description of the item</p>
+                        <input type="text" id="artist_description" name="artist_description" placeholder="Artist description">
+                    </div>
+                    <div class="form-inline justify-content-md-center formclass"> 
+                        <p for="custom_labels" class="pformclass">Enter labels for the item</p>
+                        <input type="text" id="custom_labels" name="custom_labels" placeholder="Custom labels">
+                    </div>
+                    <div class="form-inline justify-content-md-center formclass" > 
+                        <p for="price" class="pformclass">Enter price of the artist</p>
+                        <input type="text" id="price" name="price" placeholder="100">
+                    </div>
+                    <div class="form-inline justify-content-md-center formclass"> 
+                        <p for="price" class="pformclass">Enter name of the artist</p>
+                        <input type="text" id="artist_name" name="artist_name" placeholder="Enter artist name">
+                    </div>
+                    <div style="margin-top: 10px;margin-bottom: 10px; visibility:hidden !important" id="display_image_div">
+                        <h4>Upload this image?</h4>
+                        <img id="display_image" src="#"/>
+                    </div>
+                </form>
+                <button id="uploadFiles" onclick="uploadPhoto()">Upload Photo</button>
+            </center>
+            <center><p id="uploadText" style="display:hidden; font-size: 20px;"></p></center>
+        </div>
+        <div class="searchArt" style="float: left;">
+            <h1>Search Arts</h1>
+            <a href="/authenticated_index.html" class="btn btn-primary">Search Art</a>
+        </div>
+        <div class="checkArtist" style="float: right;">
+            <h1>Check Artist</h1>
+            <a href="/findArtByImage.html" class="btn btn-primary">Find Artist</a>
+        </div>
+    </body>
+</html>

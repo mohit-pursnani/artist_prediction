@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.879.0.min.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <div class="checkArtist text-right">
+        <a href="https://art-web-app.auth.us-east-1.amazoncognito.com/logout?client_id=1gt3svem2lj7fo7oeec3grr8rs&logout_uri=https://searchartbyartist.s3.amazonaws.com/index.html" class="btn btn-primary">
+            Sign Out
+        </a>
+    </div>
+    <center>
+        <div class="header">
+            <h1>Kalah</h1>
+            <p>Find artist from art piece</p>
+        </div>
+    </center>
+    <body class="body">
+        <div style="text-align: center;">
+            <div class="Upload_files">
+                <form action="">
+                    <h2 style="text-align: center;margin-top: 10px;">Upload Photo to identify artist</h2>
+                </form>
+                <form action="">
+                    <input type="file" id="uploaded_file" name="filename" style="margin-top: 10px;" onchange="readURL(this);"> 
+                </form> 
+                <div style="margin-top: 10px;margin-bottom: 10px; visibility:hidden !important" id="display_image_div">
+                    <h4>Upload this image?</h4>
+                    <img id="display_image" src="#"/>
+                </div>
+                <button id="uploadFiles" onclick="uploadPhotoForPrediction()" class="btn btn-primary" style="margin-top: 50px;">Upload Art For Prediction</button>
+                <p id="uploadText" style="display:hidden; font-size: 20px;"></p>
+                <p id="predicted_text" style="display:hidden; font-size: 20px;"></p>
+            </div>
+            
+            <button id="find_artist" type="button" class="btn btn-primary" style="visibility:hidden" style="text-align:center;" onclick="searchPhotoForPrediction()">Click to find Artist</button>
+            <div class="searchArt" style="float: left;">
+                <h1>Search Arts</h1>
+                <a href="/authenticated_index.html" class="btn btn-primary">Search Art</a>
+            </div>
+            <div class="uploadArtPiece" style="float: right;">
+                <h1>Check Artist</h1>
+                <a href="/uploadArt.html" class="btn btn-primary">Upload Art Piece</a>
+            </div>
+        </div>
+    </body>
+</html>

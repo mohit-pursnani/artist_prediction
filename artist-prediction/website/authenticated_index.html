@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.879.0.min.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+        <script type="text/javascript" src="apiGateway-js-sdk/apigClient.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <div class="checkArtist text-right">
+        <a href="https://art-web-app.auth.us-east-1.amazoncognito.com/logout?client_id=1gt3svem2lj7fo7oeec3grr8rs&logout_uri=https://searchartbyartist.s3.amazonaws.com/index.html" class="btn btn-primary">
+            Sign Out
+        </a>
+    </div>
+    <center>
+        <div class="header">
+            <h1>Kalah</h1>
+            <p>One Place for all artists</p>
+        </div>
+    </center>
+    <body class="body">
+        <div class="container-fluid">
+            <div class="search-bar">
+                <div class="dropdown">
+                    <select class="selectpicker" id="dropdownMenuButton">
+                        <option data-content="Artist Name">
+                            Artist Name
+                        </option>
+                        <option data-content="Description">
+                            Description
+                        </option>
+                    </select>
+                </div>
+                <form action="", method="get", target="">
+                    <input id="search_query"  type="text" autocomplete="off" autofocus>
+                </form>
+                <button type="button">
+                    <i class="large material-icons" id="mic_search" onclick="voiceSearch()">mic</i>
+                </button>
+                <div>
+                    <input class="btn btn-primary" id="searchPhotos" name="searchPhotos" type="submit" value="Search" onclick="textSearch()">
+                </div>  
+            </div>
+        </div>
+        <div id="photos_search_results">
+            <div class="row" id="photo_search"></div>
+        </div>
+        <div class="uploadArtPiece" style="float: left;">
+            <h1>Upload Art Piece</h1>
+            <a href="/uploadArt.html" class="btn btn-primary">Upload Art Piece</a>
+        </div>
+        <div class="checkArtist" style="float: right;">
+            <h1>Check Artist</h1>
+            <a href="/findArtByImage.html" class="btn btn-primary">Find Artist</a>
+        </div>
+    </body>
+</html>
