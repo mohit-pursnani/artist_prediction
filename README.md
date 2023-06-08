@@ -1,2 +1,3 @@
-# kalah
-One place for all artist
+# Artist Prediction
+One place for all arts and art pieces
+## Architecure of the system
